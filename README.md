@@ -12,3 +12,4 @@ If none are selected a message prints out saying "undefined"
 
 Once user wants to generate a new password it will over ride and and make them chose the options again.
 ```
+![ScreenShot](ScreenShot.jpg)
