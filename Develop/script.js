@@ -16,10 +16,7 @@ var lowerCase = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k","l","m",
 "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 // Checking for every selection
-for (let i = 0; i < charCount; i++){
-  let randomChars = charOpt[Math.floor(Math.random()* charOpt.length)];
-  tPassword += randomChars;
-}
+
 
 if (numReq) {
   charOpt = charOpt.concat(numerical);
@@ -50,17 +47,28 @@ function generatePassword() {
     // Prompt user if they want special character 
     var specialReq = confirm( "Would you like for your password to inculde speacial characters?");
     //Prompt user if they want uppercase letter 
-    var upperReq = confrim("Would you like for your password to include uppercase letters?");
+    var upperReq = confirm("Would you like for your password to include uppercase letters?");
     //Prompt user if they want lowercase letter
     var lowerReq = confirm( "Would you like for your password to include lowercase letters?");
   } else {
     alert ( "Please enter a valid character range. Must be betweem 8 - 128.");
   }
-  // Check if at least one is chosen 
+  // Check if at least one is true
   if ( numReq === true || specialReq === true || upperReq === true || lowerReq === true) {
     return generatePasswordText(charCount, numReq, specialReq, upperReq, lowerReq)
   }
+  // Store input
+  var passwordOpts = {
+    length: length, 
+    numReq: numReq, 
+    specialReq: specialReq, 
+    lowerReq: lowerReq, 
+    upperReq: upperReq
+  };
+  return passwordOpts; 
 }
+
+
   // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
